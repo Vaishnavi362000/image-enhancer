@@ -1,9 +1,12 @@
-import React from 'react';
-import { Box, Flex } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Box, Flex, Progress } from '@chakra-ui/react';
 import Sidebar from './Sidebar';
 import TopBar from './TopBar';
+import { useLoading } from '../context/LoadingContext';
 
 const Layout = ({ children }) => {
+  const { isLoading } = useLoading();
+
   return (
     <Box 
       alignItems="center" 
@@ -13,16 +16,16 @@ const Layout = ({ children }) => {
       bgSize="cover" 
       bgPosition="center"
     >
-      
-      <Flex>
-        <Box
-          width="250px"
-          bg="rgba(236, 232, 234, 0.79)" 
-          backdropFilter="blur(10px)"
-          height="100vh"
-        >
-          <Sidebar />
-        </Box>
+      {isLoading && <Progress size="xs" isIndeterminate colorScheme="black" />}
+      <Flex height="100vh">
+        {/* <Box 
+        width="250px" 
+        bg="rgba(236, 232, 234, 0.79)" 
+        backdropFilter="blur(10px)"
+      >
+        <Sidebar />
+      </Box> */}
+        <Sidebar />
         <Box
           flex="1"
           p={4}

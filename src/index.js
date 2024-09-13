@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import theme from './theme';
+import './index.css';
 import App from './App';
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import { ClerkProvider } from '@clerk/clerk-react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import supabase from './config/supabaseClient';
+import { LoadingProvider } from './context/LoadingContext';
+
 
 
 const PUBLISHABLE_KEY = process.env.REACT_APP_PUBLISHABLE_KEY;
@@ -33,7 +36,9 @@ ReactDOM.render(
       <ChakraProvider theme={theme}>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <BrowserRouter>
-          <App />
+          <LoadingProvider>
+            <App />
+          </LoadingProvider>
         </BrowserRouter>
       </ChakraProvider>
    

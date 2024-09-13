@@ -7,8 +7,6 @@ import DashboardPage from './pages/DashboardPage';
 import VerifyCodePage from './pages/VerifyCode';
 import LandingPage from './pages/LandingPage';
 import Layout from './components/Layout';
-import ImageUpload from './pages/ImageUpload';
-import ImageEditor from './pages/ImageEditor';
 import History from './pages/History';
 
 
@@ -36,20 +34,6 @@ function App() {
                 <DashboardPage />
               </Layout>
             </SignedIn>   
-          } />
-          <Route path="/upload" element={
-            <SignedIn>      
-              <Layout>
-                <ImageUpload />
-              </Layout>
-            </SignedIn> 
-          } />
-          <Route path="/image-enhancer" element={
-            <SignedIn>      
-              <Layout>
-                <ImageEditor />
-              </Layout>
-            </SignedIn> 
           } />
           <Route path="/enhancement-history" element={
             <SignedIn>      
